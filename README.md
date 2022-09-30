@@ -30,16 +30,13 @@ Step 2. Go to config.py to change data, logging and checkpoint paths, change exp
 
 Step 3. 
 For fixed masking: 
-To run MLM and NSP tasks for pretraining, run train_fixed_mask_nsp.py. To run only MLM task for pretraining, run train_fixed_mask.py.
-
-For dynamic masking:
+To run MLM and NSP tasks for pretraining, run train_fixed_mask_nsp.py. To run only MLM task for pretraining, run train_fixed_mask.py. For dynamic masking:
 To run dynamic masking MLM tasks for pretraining, run train_dynamic_mask.py
 
 Step 4. 
+To resume training: for MLM and NSP tasks for pretraining, run resume_train_fixed_mask_nsp.py. To resume running only MLM task for pretraining, run resume_train_fixed_mask.py. To resume training for dynamic masking MLM tasks for pretraining, run resume_train_dynamic_mask.py
 
-To resume training: for MLM and NSP tasks for pretraining, run resume_train_fixed_mask_nsp.py. 
-
-To resume running only MLM task for pretraining, run resume_train_fixed_mask.py. To resume training for dynamic masking MLM tasks for pretraining, run resume_train_dynamic_mask.py
+Tensorboard is used for logging.
 
 
 
