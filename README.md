@@ -1,6 +1,6 @@
 # Self supervised pretraining of transformer based architecture for Electronic Health Records (EHR)
 
-Millions of patients' electronic health records (EHR) are available through Optum, Cerner and other providers. Recently, transformer based architectures have showed tremendous potential in natural language processing tasks. Self supervised learning approaches such as masked language modeling (MLM) and next sentence prediction (NSP) have made possible to use millions of unlabelled text datasets. Similarly, a transformer model can be trained on millions of patients' unlabelled EHR data comprising of diagnoses codes (ICD-9 and ICD-10), procedures codes (CPT,HCPCS, and ICD PCS),and medications (Multum ID and multum categories). Each code can be thought of as a word in sentence and each patient record as a sentence. The repository was built by me to enable any compatible tranformer based architecture pretraining on EHR data using masked language modeling and next sentence prediction. 
+Millions of patients' electronic health records (EHR) are available through Optum, Cerner and other providers. Recently, transformer based architectures have showed tremendous potential in natural language processing tasks. Self supervised learning approaches such as masked language modeling (MLM) and next sentence prediction (NSP) have made possible to use millions of unlabelled text datasets. Similarly, a transformer model can be trained on millions of patients' unlabelled EHR data comprising of diagnoses codes (ICD-9 and ICD-10), procedures codes (CPT,HCPCS, and ICD PCS),and medications (Multum ID and multum categories). Each EHR code can be thought of as a word in sentence and each patient record as a sentence. The repository was built by me to enable any compatible tranformer based architecture pretraining on EHR data using masked language modeling and next sentence prediction. The original idea of this concept stems from medbert model from our lab where tensorflowv1 bert original code was used for training EHR data on diagnosis code.
 
 Pretraining strategies:
 
@@ -10,7 +10,6 @@ Masked language modeling (MLM):
     A particular percentage of EHR codes (15% by default, value to be mentioned in config.py) for each patient (compared to a sentence) are masked randomly every    epoch. Out of the masked tokens, 10% of the EHR codes are replaced by random EHR codes, 10% of the codes are kept as original. 
     **Dynamic mask:** 
     For Bert like models, every epoch, the codes to be masked are selected randomly.
-    
     **Fixed mask:** 
     For Roberta like models, the same EHR codes should be masked for 4 epochs, then changed every 4 epochs. A training strategy has been developed for the same. (Although no advantage was seen in the actual results)        
     
