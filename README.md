@@ -77,12 +77,13 @@ Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow 
 │ 
 └── utils
      └── utils.py - misc utils 
+     └── requirements.txt - python libraries
+     
 ```
 <hr />
 
 # Requirements
-The `requirements.txt` file should list all Python libraries that your notebooks
-depend on, and they will be installed using:
+The `requirements.txt` file contains all Python libraries and they will be installed using:
 ```
 pip install -r requirements.txt
 ```
