@@ -1,8 +1,22 @@
 # Self supervised pretraining of transformer based architecture for Electronic Health Records (EHR)
 
-Millions of patients' electronic health records (EHR) are available through Optum, Cerner and other providers. Recently, transformer based architectures have showed tremendous potential in natural language processing tasks. Self supervised learning approaches such as masked language modeling (MLM) and next sentence prediction (NSP) have made possible to use millions of unlabelled text datasets. Similarly, a transformer model can be trained on millions of unlabelled EHR data. EHR data uses ICD codes, 
+Millions of patients' electronic health records (EHR) are available through Optum, Cerner and other providers. Recently, transformer based architectures have showed tremendous potential in natural language processing tasks. Self supervised learning approaches such as masked language modeling (MLM) and next sentence prediction (NSP) have made possible to use millions of unlabelled text datasets. Similarly, a transformer model can be trained on millions of patients' unlabelled EHR data comprising of diagnoses codes (ICD-9 and ICD-10), procedures codes (CPT,HCPCS, and ICD PCS),and medications (Multum ID and multum categories). Each code can be thought of as a word in sentence and each patient record as a sentence. The repository was built by me to enable any compatible tranformer based architecture pretraining on EHR data using masked language modeling and next sentence prediction. 
 
-In order to decrease repeated stuff, we recommend to use a high-level library. You can write your own high-level library or you can just use some third-part libraries such as [ignite](https://github.com/pytorch/ignite), [fastai](https://github.com/fastai/fastai), [mmcv](https://github.com/open-mmlab/mmcv) … etc. This can help you write compact but full-featured training loops in a few lines of code. Here we use ignite to train mnist as an example.
+Pretraining strategies:
+
+Next sentence prediction task has been replaced by lenght of stay longer than 7 days (yes/no).
+
+Masked language modeling (MLM): 
+    A particular percentage of EHR codes (15% by default, value to be mentioned in config.py) for each patient (compared to a sentence) are masked randomly every    epoch. Out of the masked tokens, 10% of the EHR codes are replaced by random EHR codes, 10% of the codes are kept as original. 
+    **Dynamic mask:** 
+    For Bert like models, every epoch, the codes to be masked are selected randomly.
+    
+    **Fixed mask:** 
+    For Roberta like models, the same EHR codes should be masked for 4 epochs, then changed every 4 epochs. A training strategy has been developed for the same. (Although no advantage was seen in the actual results)        
+    
+
+
+
 
 # Requirements
 - [yacs](https://github.com/rbgirshick/yacs) (Yet Another Configuration System)
