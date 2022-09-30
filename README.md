@@ -8,9 +8,11 @@ Next sentence prediction task has been replaced by lenght of stay longer than 7 
 
 Masked language modeling (MLM): 
     A particular percentage of EHR codes (15% by default, value to be mentioned in config.py) for each patient (compared to a sentence) are masked randomly every    epoch. Out of the masked tokens, 10% of the EHR codes are replaced by random EHR codes, 10% of the codes are kept as original. 
-    **Dynamic mask:** 
+    
+    **Dynamic masking strategy:** 
     For Bert like models, every epoch, the codes to be masked are selected randomly.
-    **Fixed mask:** 
+    
+    **Fixed masking strategy:** 
     For Roberta like models, the same EHR codes should be masked for 4 epochs, then changed every 4 epochs. A training strategy has been developed for the same. (Although no advantage was seen in the actual results)        
     
 
