@@ -13,7 +13,6 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 -  [Contributing](#contributing)
 -  [Acknowledgments](#acknowledgments)
 
-
 # Pretraining strategies
 
 ### Next sentence prediction task (NSP) has been replaced by lenght of stay longer than 7 days (yes/no).
@@ -50,6 +49,7 @@ Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow 
 ```
 ├──  configs
 │    └── config.py - change data/logging/checkpoint paths, experiment name, gpu, training options, hyperparameters
+│
 ├──  data  
 │    └── dataset_MLM_NSP.py - dataset class for MLM and NSP pretraining tasks
 │    └── dataset_MLM.py - dataset class for MLM pretraining tasks
@@ -57,7 +57,6 @@ Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow 
 ├──  engine - The training function to be used in the training files.
 │   ├── engine_amp_MLM_NSP.py  - Main training loop for MLM and NSP task to be used inside train_*.py files
 │   └── engine_amp_MLM.py  - Main training loop for MLM task
-│
 │
 ├── train - this folder contains main training files. 
 │   └── train_dynamic_mask.py - Main training file for dynamic MLM strategy
@@ -70,36 +69,30 @@ Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow 
 ├──  tools                - here's the train/test model of your project.
 │    └── train_net.py  - here's an example of train model that is responsible for the whole pipeline.
 │ 
-│ 
 └── utils
      └── utils.py - misc utils 
 
-
-
 # Requirements
--torch==1.8.1
--torch-tb-profiler==0.1.0
--torchaudio==0.8.1
--torchvision==0.9.1
--prettytable==2.1.0
--tensorboard==2.5.0
--tensorboard-data-server==0.6.1
--tensorboard-plugin-wit==1.8.0
--transformers==4.6.1
--tqdm=4.59.0=pyhd3eb1b0_1
--numpy=1.20.1=py38h34a8a5c_0
--numpy-base=1.20.1=py38haf7ebc8_0
--numpydoc=1.1.0=pyhd3eb1b0_1
+The `requirements.txt` file should list all Python libraries that your notebooks
+depend on, and they will be installed using:
+```
+pip install -r requirements.txt
+```
+    -torch==1.8.1
+    -torch-tb-profiler==0.1.0
+    -torchaudio==0.8.1
+    -torchvision==0.9.1
+    -prettytable==2.1.0
+    -tensorboard==2.5.0
+    -tensorboard-data-server==0.6.1
+    -tensorboard-plugin-wit==1.8.0
+    -transformers==4.6.1
+    -tqdm=4.59.0=pyhd3eb1b0_1
+    -numpy=1.20.1=py38h34a8a5c_0
+    -numpy-base=1.20.1=py38haf7ebc8_0
+    -numpydoc=1.1.0=pyhd3eb1b0_1
 
-
-
-# Future Work
-
-# Contributing
-Any kind of enhancement or contribution is welcomed.
-
-
-# Acknowledgments
-
+# How to cite
+This repository is a research work in progress. Please contact author for details on reuse of code.
 
 
