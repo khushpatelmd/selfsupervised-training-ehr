@@ -23,10 +23,10 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 A particular percentage of EHR codes (15% by default, value to be mentioned in config.py) for each patient (compared to a sentence) are masked randomly every    epoch. Out of the masked tokens, 10% of the EHR codes are replaced by random EHR codes, 10% of the codes are kept as original. 
     
 #### Dynamic masking strategy:
-For Bert like models, every epoch, the codes to be masked are selected randomly.
+For Roberta like models, every 4 epochs, the EHR codes to be masked are selected randomly. The number of epochs after which masking is changed is configurable.
     
-#### Fixed masking strategy:
-For Roberta like models, the same EHR codes should be masked for 4 epochs, then changed every 4 epochs. A training strategy has been developed for the same. (Although no advantage was seen in the actual results)        
+#### Fixed / static masking strategy:
+For original BERT model, the EHR codes are masked only once during data preprocessing which means the same input masks are fed to the model on epoch. A training strategy has been developed for the same.       
     
 <hr />
 
@@ -44,63 +44,52 @@ To run dynamic masking MLM tasks for pretraining, run train_dynamic_mask.py
 Step 4. 
 To resume training: for MLM and NSP tasks for pretraining, run resume_train_fixed_mask_nsp.py. To resume running only MLM task for pretraining, run resume_train_fixed_mask.py. To resume training for dynamic masking MLM tasks for pretraining, run resume_train_dynamic_mask.py
 
-Tensorboard is used for logging.
+Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow pretraining on any sized GPU.
 
 # Code structure
 ```
 ├──  configs
-│    └── config.py - change data/logging/checkpoint paths, experiment name, gpu, batch size, When to save checkpoints, lr, epochs, etc
-│
-│
-├──  configs  
-│    └── train_mnist_softmax.yml  - here's the specific config file for specific model or dataset.
-│ 
-│
+│    └── config.py - change data/logging/checkpoint paths, experiment name, gpu, training options 
 ├──  data  
-│    └── datasets  - here's the datasets folder that is responsible for all data handling.
-│    └── transforms  - here's the data preprocess folder that is responsible for all data augmentation.
-│    └── build.py  		   - here's the file to make dataloader.
-│    └── collate_batch.py   - here's the file that is responsible for merges a list of samples to form a mini-batch.
+│    └── dataset_MLM_NSP.py - dataset class for MLM and NSP pretraining tasks
+│    └── dataset_MLM.py - dataset class for MLM pretraining tasks
+│
+├──  engine - The training function to be used in the training files.
+│   ├── engine_amp_MLM_NSP.py  - Main training loop for MLM and NSP task to be used inside train_*.py files
+│   └── engine_amp_MLM.py  - Main training loop for MLM task
 │
 │
-├──  engine
-│   ├── trainer.py     - this file contains the train loops.
-│   └── inference.py   - this file contains the inference process.
-│
-│
-├── layers              - this folder contains any customed layers of your project.
-│   └── conv_layer.py
-│
-│
-├── modeling            - this folder contains any model of your project.
-│   └── example_model.py
-│
-│
-├── solver             - this folder contains optimizer of your project.
-│   └── build.py
-│   └── lr_scheduler.py
-│   
+├── train - this folder contains main training files. 
+│   └── train_dynamic_mask.py - Main training file for dynamic MLM strategy
+│   └── train_fixed_mask_nsp.py - Main training file for fixed MLM strategy and NSP task
+│   └── train_fixed_mask.py - Main training file for fixed MLM strategy 
+│   └── resume_train_dynamic_mask.py - resuming training file for dynamic MLM strategy from last checkpoint
+│   └── resume_train_fixed_mask_nsp.py - resuming training file for fixed MLM strategy and NSP task from last checkpoint
+│   └── resume_train_fixed_mask.py - resuming training file for fixed MLM strategy from last checkpoint
 │ 
 ├──  tools                - here's the train/test model of your project.
 │    └── train_net.py  - here's an example of train model that is responsible for the whole pipeline.
 │ 
 │ 
 └── utils
-│    ├── logger.py
-│    └── any_other_utils_you_need
-│ 
-│ 
-└── tests					- this foler contains unit test of your project.
-     ├── test_data_sampler.py
-```
-
+     ├── utils.py - misc utils 
 
 
 
 # Requirements
-- [yacs](https://github.com/rbgirshick/yacs) (Yet Another Configuration System)
-- [PyTorch](https://pytorch.org/) (An open source deep learning platform) 
-- [ignite](https://github.com/pytorch/ignite) (High-level library to help with training neural networks in PyTorch)
+-torch==1.8.1
+-torch-tb-profiler==0.1.0
+-torchaudio==0.8.1
+-torchvision==0.9.1
+-prettytable==2.1.0
+-tensorboard==2.5.0
+-tensorboard-data-server==0.6.1
+-tensorboard-plugin-wit==1.8.0
+-transformers==4.6.1
+-tqdm=4.59.0=pyhd3eb1b0_1
+-numpy=1.20.1=py38h34a8a5c_0
+-numpy-base=1.20.1=py38haf7ebc8_0
+-numpydoc=1.1.0=pyhd3eb1b0_1
 
 
 
