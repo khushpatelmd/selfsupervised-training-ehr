@@ -7,7 +7,7 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 <hr />
 
 # Table Of Contents
--  [Pretraining strategies](#Pretraining strategies:)
+-  [Pretraining strategies](#Pretraining-strategies)
 -  [In Details](#in-details)
 -  [Future Work](#future-work)
 -  [Contributing](#contributing)
