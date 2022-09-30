@@ -72,7 +72,7 @@ Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow 
 │ 
 │ 
 └── utils
-     ├── utils.py - misc utils 
+     └── utils.py - misc utils 
 
 
 
