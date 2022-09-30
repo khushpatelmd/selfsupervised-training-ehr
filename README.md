@@ -49,7 +49,7 @@ Tensorboard is used for logging.
 # Code structure
 ```
 ├──  configs
-│    └── config.py - change data, logging and checkpoint paths, change experiment name, gpu number and batch size depending on the gpu you are working. MUltiple     configurable options such as when to save checkpoints, learning rate, number of epochs, masking criteria, vocab size, dataset size, seed for fixed masking (eg Roberta)
+│    └── config.py - change data/logging/checkpoint paths, experiment name, gpu, batch size, When to save checkpoints, lr, epochs, etc
 │
 │
 ├──  configs  
