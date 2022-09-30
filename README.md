@@ -49,7 +49,7 @@ Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow 
 # Code structure
 ```
 ├──  configs
-│    └── config.py - change data/logging/checkpoint paths, experiment name, gpu, training options 
+│    └── config.py - change data/logging/checkpoint paths, experiment name, gpu, training options, hyperparameters
 ├──  data  
 │    └── dataset_MLM_NSP.py - dataset class for MLM and NSP pretraining tasks
 │    └── dataset_MLM.py - dataset class for MLM pretraining tasks
