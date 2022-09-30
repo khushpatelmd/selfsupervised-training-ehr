@@ -10,8 +10,8 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 -  [Pretraining strategies](#Pretraining-strategies)
 -  [How to run the code](#How-to-run)
 -  [Code structure](#Code-structure)
--  [Contributing](#contributing)
--  [Acknowledgments](#acknowledgments)
+-  [Requirements](#Requirements)
+-  [How to cite](#How-to-cite)
 
 # Pretraining strategies
 
