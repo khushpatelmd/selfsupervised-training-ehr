@@ -93,6 +93,6 @@ pip install -r requirements.txt
     -numpydoc=1.1.0=pyhd3eb1b0_1
     
 # How to cite
-This repository is a research work in progress. Please contact author for details on reuse of code.
+This repository is a research work in progress. Please contact author (drpatelkhush@gmail.com) for details on reuse of code.
 
 
