@@ -8,8 +8,8 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 
 # Table Of Contents
 -  [Pretraining strategies](#Pretraining-strategies)
--  [In Details](#in-details)
--  [Future Work](#future-work)
+-  [How to run the code](#How-to-run)
+-  [Code structure](#Code-structure)
 -  [Contributing](#contributing)
 -  [Acknowledgments](#acknowledgments)
 
@@ -30,7 +30,7 @@ For Roberta like models, the same EHR codes should be masked for 4 epochs, then 
     
 <hr />
 
-### How to run
+# How to run
 
 Step 1. Go to model.py and define the model you want (eg ). You need vocab size (default=90,000), maximum sequence length (all codes for a patient, default=256),  vocabulary size of the token_type_ids (default=1000), other model configs (num of attention heads, etc). Run model_data_exploration.py to count number of parameters as well as get information of the dataset. 
 
@@ -46,21 +46,10 @@ To resume training: for MLM and NSP tasks for pretraining, run resume_train_fixe
 
 Tensorboard is used for logging.
 
-
-
-
-# Requirements
-- [yacs](https://github.com/rbgirshick/yacs) (Yet Another Configuration System)
-- [PyTorch](https://pytorch.org/) (An open source deep learning platform) 
-- [ignite](https://github.com/pytorch/ignite) (High-level library to help with training neural networks in PyTorch)
-
-
-
-
-# In Details
+# Code structure
 ```
-├──  config
-│    └── defaults.py  - here's the default config file.
+├──  configs
+│    └── config.py - change data, logging and checkpoint paths, change experiment name, gpu number and batch size depending on the gpu you are working. MUltiple     configurable options such as when to save checkpoints, learning rate, number of epochs, masking criteria, vocab size, dataset size, seed for fixed masking (eg Roberta)
 │
 │
 ├──  configs  
@@ -104,6 +93,15 @@ Tensorboard is used for logging.
 └── tests					- this foler contains unit test of your project.
      ├── test_data_sampler.py
 ```
+
+
+
+
+# Requirements
+- [yacs](https://github.com/rbgirshick/yacs) (Yet Another Configuration System)
+- [PyTorch](https://pytorch.org/) (An open source deep learning platform) 
+- [ignite](https://github.com/pytorch/ignite) (High-level library to help with training neural networks in PyTorch)
+
 
 
 # Future Work
