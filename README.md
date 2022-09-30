@@ -6,6 +6,14 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 
 <hr />
 
+# Table Of Contents
+-  [Pretraining strategies](## Pretraining strategies:)
+-  [In Details](#in-details)
+-  [Future Work](#future-work)
+-  [Contributing](#contributing)
+-  [Acknowledgments](#acknowledgments)
+
+
 ## Pretraining strategies:
 
 ### Next sentence prediction task (NSP) has been replaced by lenght of stay longer than 7 days (yes/no).
@@ -46,12 +54,7 @@ Tensorboard is used for logging.
 - [PyTorch](https://pytorch.org/) (An open source deep learning platform) 
 - [ignite](https://github.com/pytorch/ignite) (High-level library to help with training neural networks in PyTorch)
 
-# Table Of Contents
--  [In a Nutshell](#in-a-nutshell)
--  [In Details](#in-details)
--  [Future Work](#future-work)
--  [Contributing](#contributing)
--  [Acknowledgments](#acknowledgments)
+
 
 
 # In Details
