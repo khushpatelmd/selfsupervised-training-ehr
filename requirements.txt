@@ -1,0 +1,13 @@
+torch==1.8.1
+torch-tb-profiler==0.1.0
+torchaudio==0.8.1
+torchvision==0.9.1
+prettytable==2.1.0
+tensorboard==2.5.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.0
+transformers==4.6.1
+tqdm=4.59.0=pyhd3eb1b0_1
+numpy=1.20.1=py38h34a8a5c_0
+numpy-base=1.20.1=py38haf7ebc8_0
+numpydoc=1.1.0=pyhd3eb1b0_1
