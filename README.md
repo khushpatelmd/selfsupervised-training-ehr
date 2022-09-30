@@ -14,7 +14,7 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 -  [Acknowledgments](#acknowledgments)
 
 
-# Pretraining strategies:
+# Pretraining strategies
 
 ### Next sentence prediction task (NSP) has been replaced by lenght of stay longer than 7 days (yes/no).
 
