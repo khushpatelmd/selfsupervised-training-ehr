@@ -13,6 +13,8 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 -  [Requirements](#Requirements)
 -  [How to cite](#How-to-cite)
 
+<hr />
+
 # Pretraining strategies
 
 ### Next sentence prediction task (NSP) has been replaced by lenght of stay longer than 7 days (yes/no).
@@ -25,7 +27,9 @@ A particular percentage of EHR codes (15% by default, value to be mentioned in c
 For Roberta like models, every 4 epochs, the EHR codes to be masked are selected randomly. The number of epochs after which masking is changed is configurable.
     
 #### Fixed / static masking strategy:
-For original BERT model, the EHR codes are masked only once during data preprocessing which means the same input masks are fed to the model on epoch. A training strategy has been developed for the same.       
+For original BERT model, the EHR codes are masked only once during data preprocessing which means the same input masks are fed to the model on epoch. A training strategy has been developed for the same.    
+
+#### Data: The EHR data is a list of list where the structure is [[patient_id],[lenght of stay],[time between two visits],[EHR_codes(ICD/CPT,etc) mapped as per vocab file],[visit number]]
     
 <hr />
 
@@ -44,6 +48,8 @@ Step 4.
 To resume training: for MLM and NSP tasks for pretraining, run resume_train_fixed_mask_nsp.py. To resume running only MLM task for pretraining, run resume_train_fixed_mask.py. To resume training for dynamic masking MLM tasks for pretraining, run resume_train_dynamic_mask.py
 
 Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow pretraining on any sized GPU.
+
+<hr />
 
 # Code structure
 ```
@@ -72,6 +78,8 @@ Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow 
 └── utils
      └── utils.py - misc utils 
 ```
+<hr />
+
 # Requirements
 The `requirements.txt` file should list all Python libraries that your notebooks
 depend on, and they will be installed using:
@@ -91,7 +99,9 @@ pip install -r requirements.txt
     -numpy=1.20.1=py38h34a8a5c_0
     -numpy-base=1.20.1=py38haf7ebc8_0
     -numpydoc=1.1.0=pyhd3eb1b0_1
-    
+
+<hr />
+
 # How to cite
 This repository is a research work in progress. Please contact author (drpatelkhush@gmail.com) for details on reuse of code.
 
