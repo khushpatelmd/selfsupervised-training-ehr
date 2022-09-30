@@ -5,6 +5,7 @@ Millions of patients' electronic health records (EHR) coded data are available t
 Please note data or model cannot be shared due to HIPAA compliance. For finetuning code or questions about pretraining code, contact Khush Patel at drpatelkhush@gmail.com 
 
 <hr />
+
 ## Pretraining strategies:
 
 ### Next sentence prediction task (NSP) has been replaced by lenght of stay longer than 7 days (yes/no).
@@ -28,9 +29,7 @@ Step 1. Go to model.py and define the model you want (eg ). You need vocab size 
 Step 2. Go to config.py to change data, logging and checkpoint paths, change experiment name, gpu number and batch size depending on the gpu you are working. MUltiple configurable options such as when to save checkpoints, learning rate, number of epochs, masking criteria, vocab size, dataset size, seed for fixed masking (eg Roberta). Please go through all options once.
 
 Step 3. 
-
 For fixed masking: 
-
 To run MLM and NSP tasks for pretraining, run train_fixed_mask_nsp.py. To run only MLM task for pretraining, run train_fixed_mask.py.
 
 For dynamic masking:
