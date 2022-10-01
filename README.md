@@ -2,6 +2,8 @@
 
 Millions of patients' electronic health records (EHR) coded data are available through Optum, Cerner and other providers. Recently, transformer based architectures have showed tremendous potential in natural language processing tasks. Self supervised learning approaches such as masked language modeling (MLM) and next sentence prediction (NSP) have made possible to use millions of unlabelled text datasets. Similarly, a transformer model can be trained on millions of patients' unlabelled EHR data comprising of diagnoses codes (ICD-9 and ICD-10), procedures codes (CPT,HCPCS, and ICD PCS),and medications (Multum ID and multum categories). Each EHR code can be thought of as a word in sentence and each patient record as a sentence. The repository was built by me to enable any compatible tranformer based architecture pretraining on EHR data using masked language modeling and next sentence prediction. The original idea of this concept stems from medbert model from our lab where tensorflowv1 bert original code was used for training EHR data on diagnosis code.
 
+The pretrained model can then be finetuned for any clinical condition. We saw far superior results for predicting pancreatic cancer and heart failure patient outcomes vs training model from scratch for the condition.
+
 Please note data or model cannot be shared due to HIPAA compliance. For finetuning code or questions about pretraining code, contact Khush Patel, MD at drpatelkhush@gmail.com 
 
 <hr />
