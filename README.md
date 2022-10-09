@@ -9,7 +9,7 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 <hr />
 
 # Table Of Contents
--  [Pretraining strategies](#Pretraining-strategies)
+-  [Training strategies](#Training-strategies)
 -  [How to run the code](#How-to-run)
 -  [Code structure](#Code-structure)
 -  [Requirements](#Requirements)
@@ -17,7 +17,7 @@ Please note data or model cannot be shared due to HIPAA compliance. For finetuni
 
 <hr />
 
-# Pretraining strategies
+# Training strategies
 
 ### Next sentence prediction task (NSP) has been replaced by lenght of stay longer than 7 days (yes/no).
 
