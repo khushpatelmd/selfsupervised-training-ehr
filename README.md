@@ -74,9 +74,6 @@ Tensorboard and csv logging is used. Automatic Mixed Precision is used to allow 
 │   └── resume_train_fixed_mask_nsp.py - resuming training file for fixed MLM strategy and NSP task from last checkpoint
 │   └── resume_train_fixed_mask.py - resuming training file for fixed MLM strategy from last checkpoint
 │ 
-├──  tools                - here's the train/test model of your project.
-│    └── train_net.py  - here's an example of train model that is responsible for the whole pipeline.
-│ 
 └── utils
      └── utils.py - misc utils 
      └── requirements.txt - python libraries
